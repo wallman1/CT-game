@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="william.coote5"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-10-25 03:07:13 PM"/>
+        <attribute name="created" value="d2lsbGlhbS5jb290ZTU7IEQ0NjEzNzAxOTMxRlA7IDIwMjQtMTAtMjU7IDAyOjI0OjA1IFBNOyAzNDkw"/>
+        <attribute name="edited" value="d2lsbGlhbS5jb290ZTU7IEQ0NjEzNzAxOTMxRlA7IDIwMjQtMTAtMjU7IDAzOjA3OjEzIFBNOyAzNDkx"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body/>
+    </function>
+    <function name="BEGINAttack" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="AttackDamage" type="Integer" array="False" size="" variables="AttackDamage"/>
+            <assign variable="AttackDamage" expression="15"/>
+            <declare name="CursorPosition" type="String" array="False" size="" variables="CursorPosition"/>
+            <assign variable="CursorPosition" expression="&quot;Position of the Cursor&quot;"/>
+            <if expression="&quot;Mouse1 Pressed?&quot;">
+                <then>
+                    <output expression="&quot;Create Moving Attack Projectile&quot;"/>
+                    <if expression="&quot;Collider Hit?&quot;">
+                        <then>
+                            <if expression="&quot;Hit Enemy?&quot;">
+                                <then>
+                                    <output expression="&quot;Reduce Enemy Health By AttackDamage&quot;"/>
+                                </then>
+                                <else/>
+                            </if>
+                        </then>
+                        <else/>
+                    </if>
+                </then>
+                <else/>
+            </if>
+            <output expression="&quot;Destroy Projectile&quot;"/>
+        </body>
+    </function>
+    <function name="BEGINMovement" type="None" variable="">
+        <parameters/>
+        <body>
+            <if expression="&quot;A Pressed?&quot;">
+                <then>
+                    <output expression="&quot;Move Player Lwft&quot;"/>
+                </then>
+                <else>
+                    <if expression="&quot;D Pressed?&quot;">
+                        <then>
+                            <output expression="&quot;Move Player Right&quot;"/>
+                        </then>
+                        <else>
+                            <if expression="&quot;W OR Spacebar Pressed?&quot;">
+                                <then>
+                                    <if expression="&quot;Is Player Touching Ground?&quot;">
+                                        <then>
+                                            <output expression="&quot;Make Player Jump&quot;"/>
+                                        </then>
+                                        <else/>
+                                    </if>
+                                </then>
+                                <else>
+                                    <if expression="&quot;Shift Pressed?&quot;">
+                                        <then>
+                                            <output expression="&quot;Make Player Dash&quot;"/>
+                                        </then>
+                                        <else/>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="BEGINNextLevel" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="EnemyStats" type="Integer" array="False" size="" variables="EnemyStats"/>
+            <declare name="LevelCount" type="Integer" array="False" size="" variables="LevelCount"/>
+            <assign variable="LevelCount" expression="1"/>
+            <assign variable="EnemyStats" expression="1"/>
+            <if expression="LevelCount = 10">
+                <then>
+                    <output expression="&quot;Send Player To Boss Room1&quot;"/>
+                </then>
+                <else>
+                    <if expression="LevelCount = 20">
+                        <then>
+                            <output expression="&quot;Send Player To Boss Room2&quot;"/>
+                        </then>
+                        <else>
+                            <if expression="LevelCount = 30">
+                                <then>
+                                    <output expression="&quot;Send Player To Boss Room3&quot;"/>
+                                </then>
+                                <else>
+                                    <if expression="LevelCount = 40">
+                                        <then>
+                                            <output expression="&quot;Send Player To Boss Room4&quot;"/>
+                                        </then>
+                                        <else>
+                                            <if expression="LevelCount = 50">
+                                                <then>
+                                                    <output expression="&quot;Send Player To Boss Room5&quot;"/>
+                                                </then>
+                                                <else>
+                                                    <output expression="&quot;Choose Random Level&quot;"/>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <assign variable="EnemyStats" expression="EnemyStats + 1"/>
+            <assign variable="LevelCount" expression="LevelCount + 1"/>
+        </body>
+    </function>
+    <function name="BEGINUpgrade" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="PlayerHealth" type="Integer" array="False" size="" variables="PlayerHealth"/>
+            <declare name="PlayerMovementSpeed" type="Integer" array="False" size="" variables="PlayerMovementSpeed"/>
+            <declare name="PlayerJumpHieght" type="Integer" array="False" size="" variables="PlayerJumpHieght"/>
+            <declare name="AttackDamage" type="Integer" array="False" size="" variables="AttackDamage"/>
+            <declare name="AttackSpeed" type="Real" array="False" size="" variables="AttackSpeed"/>
+            <assign variable="PlayerHealth" expression="100"/>
+            <assign variable="PlayerMovementSpeed" expression="10"/>
+            <assign variable="PlayerJumpHieght" expression="10"/>
+            <assign variable="AttackDamage" expression="15"/>
+            <assign variable="AttackSpeed" expression="0.5"/>
+            <output expression="&quot;Create Random Upgrade&quot;"/>
+            <if expression="&quot;Upgrade Is Increase Health&quot;">
+                <then>
+                    <assign variable="PlayerHealth" expression="PlayerHealth + 10"/>
+                </then>
+                <else>
+                    <if expression="&quot;Upgrade Is Increase Movement Speed&quot;">
+                        <then>
+                            <assign variable="PlayerMovementSpeed" expression="PlayerMovementSpeed + 1"/>
+                        </then>
+                        <else>
+                            <if expression="&quot;Upgrade Is Increase Jump Height&quot;">
+                                <then>
+                                    <assign variable="PlayerJumpHieght" expression="PlayerJumpHieght + 1"/>
+                                </then>
+                                <else>
+                                    <if expression="&quot;Upgrade Is Increase Damage&quot;">
+                                        <then>
+                                            <assign variable="AttackDamage" expression="AttackDamage + 5"/>
+                                        </then>
+                                        <else>
+                                            <if expression="&quot;Upgrade Is Increase Attack Speed&quot;">
+                                                <then>
+                                                    <assign variable="AttackSpeed" expression="AttackSpeed - 0.1"/>
+                                                </then>
+                                                <else/>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
