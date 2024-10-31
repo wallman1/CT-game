@@ -1,32 +1,36 @@
 <?xml version="1.0"?>
-<flowgorithm fileversion="2.0">
+<flowgorithm fileversion="4.2">
     <attributes>
         <attribute name="name" value=""/>
         <attribute name="authors" value="william.coote5"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2024-10-25 03:07:13 PM"/>
+        <attribute name="saved" value="2024-10-29 02:49:13 PM"/>
         <attribute name="created" value="d2lsbGlhbS5jb290ZTU7IEQ0NjEzNzAxOTMxRlA7IDIwMjQtMTAtMjU7IDAyOjI0OjA1IFBNOyAzNDkw"/>
         <attribute name="edited" value="d2lsbGlhbS5jb290ZTU7IEQ0NjEzNzAxOTMxRlA7IDIwMjQtMTAtMjU7IDAzOjA3OjEzIFBNOyAzNDkx"/>
+        <attribute name="edited" value="d2lsbGk7TEFQVE9QLTZENTg4RURVOzIwMjQtMTAtMjk7MDI6NDk6MTMgUE07MTsyOTU0"/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
-        <body/>
+        <body>
+            <call expression="BEGINMovement"/>
+            <call expression="BEGINAttack"/>
+        </body>
     </function>
     <function name="BEGINAttack" type="None" variable="">
         <parameters/>
         <body>
-            <declare name="AttackDamage" type="Integer" array="False" size="" variables="AttackDamage"/>
+            <declare name="AttackDamage" type="Integer" array="False" size=""/>
             <assign variable="AttackDamage" expression="15"/>
-            <declare name="CursorPosition" type="String" array="False" size="" variables="CursorPosition"/>
+            <declare name="CursorPosition" type="String" array="False" size=""/>
             <assign variable="CursorPosition" expression="&quot;Position of the Cursor&quot;"/>
             <if expression="&quot;Mouse1 Pressed?&quot;">
                 <then>
-                    <output expression="&quot;Create Moving Attack Projectile&quot;"/>
+                    <output expression="&quot;Create Moving Attack Projectile&quot;" newline="True"/>
                     <if expression="&quot;Collider Hit?&quot;">
                         <then>
                             <if expression="&quot;Hit Enemy?&quot;">
                                 <then>
-                                    <output expression="&quot;Reduce Enemy Health By AttackDamage&quot;"/>
+                                    <output expression="&quot;Reduce Enemy Health By AttackDamage&quot;" newline="True"/>
                                 </then>
                                 <else/>
                             </if>
@@ -36,7 +40,7 @@
                 </then>
                 <else/>
             </if>
-            <output expression="&quot;Destroy Projectile&quot;"/>
+            <output expression="&quot;Destroy Projectile&quot;" newline="True"/>
         </body>
     </function>
     <function name="BEGINMovement" type="None" variable="">
@@ -44,19 +48,19 @@
         <body>
             <if expression="&quot;A Pressed?&quot;">
                 <then>
-                    <output expression="&quot;Move Player Lwft&quot;"/>
+                    <output expression="&quot;Move Player Lwft&quot;" newline="True"/>
                 </then>
                 <else>
                     <if expression="&quot;D Pressed?&quot;">
                         <then>
-                            <output expression="&quot;Move Player Right&quot;"/>
+                            <output expression="&quot;Move Player Right&quot;" newline="True"/>
                         </then>
                         <else>
                             <if expression="&quot;W OR Spacebar Pressed?&quot;">
                                 <then>
                                     <if expression="&quot;Is Player Touching Ground?&quot;">
                                         <then>
-                                            <output expression="&quot;Make Player Jump&quot;"/>
+                                            <output expression="&quot;Make Player Jump&quot;" newline="True"/>
                                         </then>
                                         <else/>
                                     </if>
@@ -64,7 +68,7 @@
                                 <else>
                                     <if expression="&quot;Shift Pressed?&quot;">
                                         <then>
-                                            <output expression="&quot;Make Player Dash&quot;"/>
+                                            <output expression="&quot;Make Player Dash&quot;" newline="True"/>
                                         </then>
                                         <else/>
                                     </if>
@@ -79,36 +83,36 @@
     <function name="BEGINNextLevel" type="None" variable="">
         <parameters/>
         <body>
-            <declare name="EnemyStats" type="Integer" array="False" size="" variables="EnemyStats"/>
-            <declare name="LevelCount" type="Integer" array="False" size="" variables="LevelCount"/>
+            <declare name="EnemyStats" type="Integer" array="False" size=""/>
+            <declare name="LevelCount" type="Integer" array="False" size=""/>
             <assign variable="LevelCount" expression="1"/>
             <assign variable="EnemyStats" expression="1"/>
             <if expression="LevelCount = 10">
                 <then>
-                    <output expression="&quot;Send Player To Boss Room1&quot;"/>
+                    <output expression="&quot;Send Player To Boss Room1&quot;" newline="True"/>
                 </then>
                 <else>
                     <if expression="LevelCount = 20">
                         <then>
-                            <output expression="&quot;Send Player To Boss Room2&quot;"/>
+                            <output expression="&quot;Send Player To Boss Room2&quot;" newline="True"/>
                         </then>
                         <else>
                             <if expression="LevelCount = 30">
                                 <then>
-                                    <output expression="&quot;Send Player To Boss Room3&quot;"/>
+                                    <output expression="&quot;Send Player To Boss Room3&quot;" newline="True"/>
                                 </then>
                                 <else>
                                     <if expression="LevelCount = 40">
                                         <then>
-                                            <output expression="&quot;Send Player To Boss Room4&quot;"/>
+                                            <output expression="&quot;Send Player To Boss Room4&quot;" newline="True"/>
                                         </then>
                                         <else>
                                             <if expression="LevelCount = 50">
                                                 <then>
-                                                    <output expression="&quot;Send Player To Boss Room5&quot;"/>
+                                                    <output expression="&quot;Send Player To Boss Room5&quot;" newline="True"/>
                                                 </then>
                                                 <else>
-                                                    <output expression="&quot;Choose Random Level&quot;"/>
+                                                    <output expression="&quot;Choose Random Level&quot;" newline="True"/>
                                                 </else>
                                             </if>
                                         </else>
@@ -126,17 +130,17 @@
     <function name="BEGINUpgrade" type="None" variable="">
         <parameters/>
         <body>
-            <declare name="PlayerHealth" type="Integer" array="False" size="" variables="PlayerHealth"/>
-            <declare name="PlayerMovementSpeed" type="Integer" array="False" size="" variables="PlayerMovementSpeed"/>
-            <declare name="PlayerJumpHieght" type="Integer" array="False" size="" variables="PlayerJumpHieght"/>
-            <declare name="AttackDamage" type="Integer" array="False" size="" variables="AttackDamage"/>
-            <declare name="AttackSpeed" type="Real" array="False" size="" variables="AttackSpeed"/>
+            <declare name="PlayerHealth" type="Integer" array="False" size=""/>
+            <declare name="PlayerMovementSpeed" type="Integer" array="False" size=""/>
+            <declare name="PlayerJumpHieght" type="Integer" array="False" size=""/>
+            <declare name="AttackDamage" type="Integer" array="False" size=""/>
+            <declare name="AttackSpeed" type="Real" array="False" size=""/>
             <assign variable="PlayerHealth" expression="100"/>
             <assign variable="PlayerMovementSpeed" expression="10"/>
             <assign variable="PlayerJumpHieght" expression="10"/>
             <assign variable="AttackDamage" expression="15"/>
             <assign variable="AttackSpeed" expression="0.5"/>
-            <output expression="&quot;Create Random Upgrade&quot;"/>
+            <output expression="&quot;Create Random Upgrade&quot;" newline="True"/>
             <if expression="&quot;Upgrade Is Increase Health&quot;">
                 <then>
                     <assign variable="PlayerHealth" expression="PlayerHealth + 10"/>
