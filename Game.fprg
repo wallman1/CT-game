@@ -4,10 +4,10 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="william.coote5"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2024-10-29 02:49:13 PM"/>
+        <attribute name="saved" value="2024-11-01 11:07:25 AM"/>
         <attribute name="created" value="d2lsbGlhbS5jb290ZTU7IEQ0NjEzNzAxOTMxRlA7IDIwMjQtMTAtMjU7IDAyOjI0OjA1IFBNOyAzNDkw"/>
         <attribute name="edited" value="d2lsbGlhbS5jb290ZTU7IEQ0NjEzNzAxOTMxRlA7IDIwMjQtMTAtMjU7IDAzOjA3OjEzIFBNOyAzNDkx"/>
-        <attribute name="edited" value="d2lsbGk7TEFQVE9QLTZENTg4RURVOzIwMjQtMTAtMjk7MDI6NDk6MTMgUE07MTsyOTU0"/>
+        <attribute name="edited" value="d2lsbGk7TEFQVE9QLTZENTg4RURVOzIwMjQtMTEtMDE7MTE6MDc6MjUgQU07MjsyOTI4"/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -125,6 +125,26 @@
             </if>
             <assign variable="EnemyStats" expression="EnemyStats + 1"/>
             <assign variable="LevelCount" expression="LevelCount + 1"/>
+        </body>
+    </function>
+    <function name="BEGINShowStats" type="None" variable="">
+        <parameters>
+            <parameter name="PlayerHealth" type="Integer" array="False"/>
+            <parameter name="RoomCount" type="Integer" array="False"/>
+            <parameter name="Fps" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="HighScore" type="Integer" array="False" size=""/>
+            <assign variable="HighScore" expression="1"/>
+            <output expression="PlayerHealth" newline="True"/>
+            <output expression="FPS" newline="True"/>
+            <if expression="HighScore &gt; RoomCount">
+                <then>
+                    <assign variable="HighScore" expression="RoomCount"/>
+                </then>
+                <else/>
+            </if>
+            <output expression="HighScore" newline="True"/>
         </body>
     </function>
     <function name="BEGINUpgrade" type="None" variable="">
